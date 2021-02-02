@@ -20,7 +20,8 @@ Random key to add password to calculate hidden directory.
 Directory to random hidden.
 
 ## Example usage
-
-uses: actions/hello-world-javascript-action@v1.1
+```
+uses: agustim/action-hidden-directory@v1
 with:
-  password: 'Mona the Octocat'
+  password: 'MySecret'
+```
