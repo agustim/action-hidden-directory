@@ -18,7 +18,7 @@ const hashme = (str) => {
 
 try {
   const password = core.getInput('password')
-  console.log(`Password is ${nameToGreet}!`)
+  console.log(`Password is ${password}!`)
   const sharekey = makeid(10)
   core.setOutput('sharekey', sharekey)
   const directory = hashme(password+sharekey)
