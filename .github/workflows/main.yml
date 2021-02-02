@@ -18,5 +18,6 @@ jobs:
           echo "directory ${{ steps.hidden.outputs.directory }}"
       - name: Show file
         run: |
+          pwd
           ls -la ./client/
           cat ./client/sharekey.js
