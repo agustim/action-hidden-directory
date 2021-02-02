@@ -24,7 +24,7 @@ try {
   const sharekey = makeid(10)
   core.setOutput('sharekey', sharekey)
   console.log(github.workspace);
-  //fs.writeFileSync('/github/workflow/client/sharekey.js', `var sharekey="${sharekey}";`);
+  fs.writeFileSync('./client/sharekey.js', `var sharekey="${sharekey}";`);
   const directory = hashme(password+sharekey)
   console.log(`The directory is: ${directory}`)
   core.setOutput('directory', directory)
