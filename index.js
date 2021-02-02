@@ -1,6 +1,8 @@
 const core = require('@actions/core');
 const keccak256 = require('keccak256');
 const fs = require('fs');
+const github = rrequire('@actions/github');
+
 
 const makeid = function(length) {
     var result           = '';
@@ -21,8 +23,8 @@ try {
   console.log(`Password is ${password}!`)
   const sharekey = makeid(10)
   core.setOutput('sharekey', sharekey)
-  console.log("cwd:" + process.cwd())
-  fs.writeFileSync('/github/workflow/client/sharekey.js', `var sharekey="${sharekey}";`);
+  console.log(github.workspace);
+  //fs.writeFileSync('/github/workflow/client/sharekey.js', `var sharekey="${sharekey}";`);
   const directory = hashme(password+sharekey)
   console.log(`The directory is: ${directory}`)
   core.setOutput('directory', directory)
