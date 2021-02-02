@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const keccak256 = require('keccak256');
 const fs = require('fs');
-const github = rrequire('@actions/github');
+const github = require('@actions/github');
 
 
 const makeid = function(length) {
