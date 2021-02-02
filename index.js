@@ -1,6 +1,6 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
-const keccak256 = require('keccak256')
+const keccak256 = require('keccak256');
+const fs = require('fs');
 
 const makeid = function(length) {
     var result           = '';
@@ -21,6 +21,7 @@ try {
   console.log(`Password is ${password}!`)
   const sharekey = makeid(10)
   core.setOutput('sharekey', sharekey)
+  fs.writeFileSync('./client/sharekey.js', `var sharekey="${sharekey}";`);
   const directory = hashme(password+sharekey)
   console.log(`The directory is: ${directory}`)
   core.setOutput('directory', directory)

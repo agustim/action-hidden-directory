@@ -7,12 +7,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Hidden directory action step
         uses: ./ 
         id: hidden
         with:
           password: 'Mona the Octocat'
-      - name: Get the output time
+      - name: Show info
         run: |
           echo "sharekey ${{ steps.hidden.outputs.sharekey }}"
           echo "directory ${{ steps.hidden.outputs.directory }}"

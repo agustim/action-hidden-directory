@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+      <script src="./sha3.min.js"></script> <!-- Use https://github.com/emn178/js-sha3 -->
+      <script src="./sharekey.js"></script>
+      <script>
+              const redirect = function (folder) {
+                const page = "index.html"
+                var loc = document.location.href
+                if (loc.substring(loc.length - page.length, loc.length) == page){
+                    loc = loc.substring(0,loc.length - page.length)
+                }
+                if (loc.substring(loc.length - 1, loc.length) == '/'){
+                    return (loc + folder)
+                } 
+                return (loc + "/" + folder)
+              }
+              var key=prompt("Password")
+              document.location.href = redirect(keccak_256(key+sharekey))
+    </script>
+    </div>
+  </body>
+</html>
