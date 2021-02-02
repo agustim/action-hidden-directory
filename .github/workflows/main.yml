@@ -13,4 +13,6 @@ jobs:
         with:
           password: 'Mona the Octocat'
       - name: Get the output time
-        run: echo "The sharekey is ${{ steps.hidden.outputs.sharekey }}"
+        run: |
+          echo "sharekey ${{ steps.hidden.outputs.sharekey }}"
+          echo "directory ${{ steps.hidden.outputs.directory }}"

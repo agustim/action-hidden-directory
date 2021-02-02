@@ -8,6 +8,8 @@ inputs:
 outputs:
   sharekey: 
     description: 'Sharekey'
+  directory:
+    description: 'Directory to deploy'
 runs:
   using: 'node12'
   main: 'dist/index.js'

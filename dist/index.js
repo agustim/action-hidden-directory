@@ -30,8 +30,7 @@ try {
   core.setOutput('sharekey', sharekey)
   const directory = hashme(password+sharekey)
   console.log(`The directory is: ${directory}`)
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`)
+  core.setOutput('directory', directory)
 } catch (error) {
   core.setFailed(error.message);
 }
