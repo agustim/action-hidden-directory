@@ -16,3 +16,7 @@ jobs:
         run: |
           echo "sharekey ${{ steps.hidden.outputs.sharekey }}"
           echo "directory ${{ steps.hidden.outputs.directory }}"
+      - name: Show file
+        run: |
+          ls -la ./client/
+          cat ./client/sharekey.js
