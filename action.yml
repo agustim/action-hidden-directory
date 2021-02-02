@@ -1,0 +1,13 @@
+name: 'Hidden directory'
+description: 'Hidden deploy directory with key'
+inputs:
+  password:  
+    description: 'Password To Encrypt'
+    required: true
+    default: 'SuperSecret'
+outputs:
+  sharekey: 
+    description: 'Sharekey'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
