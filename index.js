@@ -2,7 +2,9 @@ const core = require('@actions/core');
 const keccak256 = require('keccak256');
 const fs = require('fs');
 const github = require('@actions/github');
-
+const fsjson = require('./client/fs.json');
+const vol = require('memfs').vol;
+const dir = "./client"
 
 const makeid = function(length) {
     var result           = '';
@@ -24,7 +26,14 @@ try {
   const sharekey = makeid(10)
   core.setOutput('sharekey', sharekey)
   console.log(github.workspace);
-  fs.writeFileSync('./client/sharekey.js', `var sharekey="${sharekey}";`);
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
+  vol.fromJSON(fsjson, '/');
+  for (file in fsjson) {
+      fs.writeFileSync(dir + file,vol.readFileSync(file));
+  }
+  fs.writeFileSync(dir + '/sharekey.js', `var sharekey="${sharekey}";`);
   const directory = hashme(password+sharekey)
   console.log(`The directory is: ${directory}`)
   core.setOutput('directory', directory)
