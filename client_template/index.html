@@ -18,9 +18,27 @@
                 } 
                 return (loc + "/" + folder)
               }
-              var key=prompt("Password")
-              document.location.href = redirect(keccak_256(key+sharekey))
+              const onAction = function (frm) {
+                const key = frm.key.value
+                var shrk
+                try {
+                  shrk = sharekey
+                } catch(err){
+                  // sharekey.js not exist?
+                  console.log("sharekey.js is not exist, user blank like sharekey")
+                  shrk = '' 
+                }
+                document.location.href = redirect(keccak_256(key+shrk))
+                return false
+              }
     </script>
+    <div style="text-align: center; margin: 20px">
+      <form action="javascript:void(0);" onsubmit="return onAction(this);">
+      <div style="margin: 10px">
+        Password: <input name="key" type="password" autocomplete="key"/>
+      </div>
+      <div><input type="submit" value="Send"/></div>
+      </form>
     </div>
   </body>
 </html>
