@@ -52,7 +52,7 @@ Public in github pages
       github_token: ${{ secrets.GITHUB_TOKEN }}
       publish_dir: ./client
 ```
-This [example|https://github.com/agustim/test-action-hidden-directory] is based in [nextjs|https://nextjs.org/]. 
+This [example](https://github.com/agustim/test-action-hidden-directory) is based in [nextjs](https://nextjs.org/). 
 ## Build own client
-If you want to change landing page of project, you can change client_template folder with your content and execute ```yarn run build``` 
+If you want to change landing page of project, you can change ```client_template``` folder with your content and execute ```yarn run build``` 
 
